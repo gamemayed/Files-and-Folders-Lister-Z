@@ -65,7 +65,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
                     p.add_run(ext)
             # Add credits to DOCX file (small text)
             credits_p = doc.add_paragraph()
-            credits_run = credits_p.add_run("Credits: user Lum-10 from GitHub and AI tools")
+            credits_run = credits_p.add_run("Credits: User Lum-10 from GitHub and AI tools")
             credits_run.font.size = 127000  # 8pt in EMU units (1 pt = 12700 EMU)
             doc.save(output_file_path)
             print(f"List generated successfully: {output_file_path}")
@@ -84,7 +84,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
                     for file in files:
                         base, ext = os.path.splitext(os.path.basename(file))
                         txt_file.write(f"• {base}{ext}\n")
-                txt_file.write("\n\nCredits: user Lum-10 from GitHub and AI tools\n")
+                txt_file.write("\n\nCredits: User Lum-10 from GitHub and AI tools\n")
             print(f"List generated successfully: {output_file_path}")
             print("The List has been generated")
     elif mode.upper() == "C":
@@ -102,7 +102,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
             db["folders"].append(folder_to_dict(folder))
         with open(output_file_path, "w", encoding="utf-8") as json_file:
             json.dump(db, json_file, indent=2)
-            json_file.write("\n/* Credits: user Lum-10 from GitHub and AI tools */\n")
+            json_file.write("\n/* Credits: User Lum-10 from GitHub and AI tools */\n")
         print(f"JSON database exported: {output_file_path}")
     else:
         with open(output_file_path, "w", encoding="utf-8") as txt_file:
@@ -116,7 +116,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
                 for file in files:
                     base, ext = os.path.splitext(os.path.basename(file))
                     txt_file.write(f"• {base}{ext}\n")
-            txt_file.write("\n\nCredits: user Lum-10 from GitHub and AI tools\n")
+            txt_file.write("\n\nCredits: User Lum-10 from GitHub and AI tools\n")
         print(f"List generated successfully: {output_file_path}")
         print("The List has been generated")
 
@@ -177,15 +177,15 @@ def is_hidden_file(entry):
 if __name__ == "__main__":
     directory_to_list = input("Enter the directory to list: ")
     recursive = True  # Always list sub-folders
-    ignore_hidden_input = input("Do you want to ignore hidden files such as desktop.ini, thumbs.db, ._.ds_store, .ds_store, .gitignore, .gitkeep? (yes/no): ").strip().lower()
-    ignore_hidden = ignore_hidden_input in ["yes", "y"]
+    hide_hidden_input = input("Do you want to hide hidden files such as desktop.ini? (y/yes/n/no): ").strip().lower()
+    ignore_hidden = hide_hidden_input in ["yes", "y"]
     filter_input = input("Enter sub-folder names or keywords to filter (comma-separated, case-insensitive, substring match), or leave blank to include all: ").strip()
     if filter_input:
         specific_subfolders = [folder.strip() for folder in filter_input.split(",") if folder.strip()]
     else:
         specific_subfolders = None
     while True:
-        mode = input("Do you want to generate the output as Mode A / DOCX, Mode B / TXT, or Mode C / JSON? ").strip().lower()
+        mode = input("Do you want to generate the output as DOCX (A), TXT (B), or JSON (C)? ").strip().lower()
         if mode in ["a", "docx", "b", "txt", "c", "json"]:
             if mode in ["a", "docx"]:
                 mode = "A"
@@ -195,7 +195,7 @@ if __name__ == "__main__":
                 mode = "C"
             break
         else:
-            print("Invalid input. Please enter A/a/DOCX/docx for Mode A, B/b/TXT/txt for Mode B, or C/c/JSON/json for Mode C.")
+            print("Invalid input. Please enter DOCX/A or TXT/B, or JSON/C.")
     list_option = 0
     while True:
         try:

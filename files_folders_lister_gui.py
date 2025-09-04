@@ -71,7 +71,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=True, s
                     run.bold = True
                     p.add_run(ext)
             credits_p = doc.add_paragraph()
-            credits_run = credits_p.add_run("Credits: user Lum-10 from GitHub and AI tools")
+            credits_run = credits_p.add_run("Credits: User Lum-10 from GitHub and AI tools")
             credits_run.font.size = 127000
             doc.save(output_file_path)
             messagebox.showinfo("Success", f"List generated successfully: {output_file_path}")
@@ -91,7 +91,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=True, s
             db["folders"].append(folder_to_dict(folder))
         with open(output_file_path, "w", encoding="utf-8") as json_file:
             json.dump(db, json_file, indent=2)
-            json_file.write("\n/* Credits: user Lum-10 from GitHub and AI tools */\n")
+            json_file.write("\n/* Credits: User Lum-10 from GitHub and AI tools */\n")
         messagebox.showinfo("Success", f"JSON database exported: {output_file_path}")
     else:
         with open(output_file_path, "w", encoding="utf-8") as txt_file:
@@ -108,7 +108,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=True, s
                     for file in files:
                         base, ext = os.path.splitext(os.path.basename(file))
                         txt_file.write(f"• {base}{ext}\n")
-            txt_file.write("\n\nCredits: user Lum-10 from GitHub and AI tools\n")
+            txt_file.write("\n\nCredits: User Lum-10 from GitHub and AI tools\n")
         messagebox.showinfo("Success", f"List generated successfully: {output_file_path}")
 
 def write_folder_structure_docx(doc, folder, indent=0, list_option=1):
@@ -161,7 +161,7 @@ def run_gui():
         directory = select_directory()
         if not directory:
             return
-        mode = simpledialog.askstring("Mode", "Enter output mode: A/DOCX, B/TXT, C/JSON").strip().lower()
+        mode = simpledialog.askstring("Mode", "Do you want to generate the output as DOCX (A), TXT (B), or JSON (C)?").strip().lower()
         if mode in ["a", "docx"]:
             mode = "A"
         elif mode in ["b", "txt"]:
@@ -169,7 +169,7 @@ def run_gui():
         elif mode in ["c", "json"]:
             mode = "C"
         else:
-            messagebox.showerror("Error", "Invalid mode.")
+            messagebox.showerror("Error", "Invalid input. Please enter DOCX/A or TXT/B, or JSON/C.")
             return
         list_option = simpledialog.askinteger("Listing Option", "Choose listing option:\n1. Both folders and files\n2. Only folders\n3. Only files", minvalue=1, maxvalue=3)
         filter_input = simpledialog.askstring("Filter", "Enter sub-folder names or keywords to filter (comma-separated), or leave blank to include all:")
@@ -177,8 +177,8 @@ def run_gui():
             specific_subfolders = [folder.strip() for folder in filter_input.split(",") if folder.strip()]
         else:
             specific_subfolders = None
-        ignore_hidden_input = messagebox.askyesno("Ignore Hidden Files", "Do you want to ignore hidden files such as desktop.ini?")
-        list_files_and_folders(directory, mode=mode, list_option=list_option, recursive=True, specific_subfolders=specific_subfolders, ignore_hidden=ignore_hidden_input)
+        hide_hidden_input = messagebox.askyesno("Hide Hidden Files", "Do you want to hide hidden files such as desktop.ini?")
+        list_files_and_folders(directory, mode=mode, list_option=list_option, recursive=True, specific_subfolders=specific_subfolders, ignore_hidden=hide_hidden_input)
     tk.Button(root, text="Run Files & Folders Lister", command=run_lister, height=2, width=30).pack(pady=40)
     tk.Label(root, text="Credits: user Lum-10 from GitHub and AI tools", font=("Arial", 8)).pack(side="bottom", pady=10)
     root.mainloop()
