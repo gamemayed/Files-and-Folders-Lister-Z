@@ -65,7 +65,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
                     p.add_run(ext)
             # Add credits to DOCX file (small text)
             credits_p = doc.add_paragraph()
-            credits_run = credits_p.add_run("Credits: User Lum-10 from GitHub and AI tools")
+            credits_run = credits_p.add_run("Credits: user Lum-10 from GitHub and AI tools")
             credits_run.font.size = 127000  # 8pt in EMU units (1 pt = 12700 EMU)
             doc.save(output_file_path)
             print(f"List generated successfully: {output_file_path}")
@@ -75,17 +75,18 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
             output_file_path = os.path.join(directory, f"{output_filename_base}.txt")
             with open(output_file_path, "w", encoding="utf-8") as txt_file:
                 txt_file.write(f"File List for {folder_name}\n\n")
+                # Folders
                 if list_option in [1, 2]:
                     for folder in folders:
-                        write_folder_structure_txt(txt_file, folder, list_option=list_option)
-                if list_option == 1:
+                        write_folder_structure_txt(txt_file, folder)
+                # Files
+                if list_option in [1, 3]:
                     for file in files:
                         base, ext = os.path.splitext(os.path.basename(file))
                         txt_file.write(f"• {base}{ext}\n")
+                txt_file.write("\n\nCredits: user Lum-10 from GitHub and AI tools\n")
             print(f"List generated successfully: {output_file_path}")
             print("The List has been generated")
-            with open(output_file_path, "a", encoding="utf-8") as txt_file:
-                txt_file.write("\n\nCredits: User Lum-10 from GitHub and AI tools\n")
     elif mode.upper() == "C":
         # JSON export
         def folder_to_dict(folder):
@@ -109,22 +110,15 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
             # Folders
             if list_option in [1, 2]:
                 for folder in folders:
-                    write_folder_structure_txt(txt_file, folder, list_option=list_option)
+                    write_folder_structure_txt(txt_file, folder)
             # Files
-            if list_option == 1 or list_option == 3:
-                if list_option == 1:
-                    for file in files:
-                        base, ext = os.path.splitext(os.path.basename(file))
-                        txt_file.write(f"• {base}{ext}\n")
-                elif list_option == 3:
-                    for file in files:
-                        base, ext = os.path.splitext(os.path.basename(file))
-                        txt_file.write(f"• {base}{ext}\n")
+            if list_option in [1, 3]:
+                for file in files:
+                    base, ext = os.path.splitext(os.path.basename(file))
+                    txt_file.write(f"• {base}{ext}\n")
             txt_file.write("\n\nCredits: user Lum-10 from GitHub and AI tools\n")
         print(f"List generated successfully: {output_file_path}")
         print("The List has been generated")
-        with open(output_file_path, "a", encoding="utf-8") as txt_file:
-            txt_file.write("\n\nCredits: User Lum-10 from GitHub and AI tools\n")
 
 def write_folder_structure_docx(doc, folder, indent=0, list_option=1):
     p = doc.add_paragraph("    " * indent)
@@ -191,7 +185,7 @@ if __name__ == "__main__":
     else:
         specific_subfolders = None
     while True:
-        mode = input("Do you want to generate the output as Mode A / DOCX, Mode B / TXT, or Mode C / JSON (for Database)? ").strip().lower()
+        mode = input("Do you want to generate the output as Mode A / DOCX, Mode B / TXT, or Mode C / JSON? ").strip().lower()
         if mode in ["a", "docx", "b", "txt", "c", "json"]:
             if mode in ["a", "docx"]:
                 mode = "A"
