@@ -9,4 +9,4 @@ then
 fi
 
 # Launch the main script
-python3 "$(dirname "$0")/lister_z.py" "$@"
+python3 "$(dirname "$0")/lister_z.py"

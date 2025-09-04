@@ -9,4 +9,4 @@ then
 fi
 
 # Launch the GUI script
-python3 "$(dirname "$0")/lister_z_gui.py" "$@"
+python3 "$(dirname "$0")/lister_z_gui.py"
