@@ -190,3 +190,4 @@ if __name__ == "__main__":
         except ValueError:
             print("Invalid input. Please enter a number (1, 2, or 3).")
     list_files_and_folders(directory_to_list, mode=mode, list_option=list_option, recursive=recursive, specific_subfolders=specific_subfolders)
+    
