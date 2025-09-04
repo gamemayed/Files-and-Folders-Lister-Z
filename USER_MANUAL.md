@@ -33,12 +33,15 @@ Save or copy the results as needed.
   run_lister_z.cmd
   ```
 
-**Linux/MacOS:**
+**Linux:**
 - Run the shell script:
   ```
   ./run_lister_z.sh
   ```
-- Or on MacOS, double-click `Lister Z.command`.
+
+**MacOS:**
+- Double-click `Lister Z.command`.
+  ```
 
 Follow the on-screen prompts or use command-line arguments to specify the folder and output options.
 
@@ -50,7 +53,9 @@ Follow the on-screen prompts or use command-line arguments to specify the folder
 ## Notes
 - Requires Python to run the `lister_z.py` and `lister_z_gui.py` scripts.
 - For the GUI version on Windows, use the `lister_z_gui.exe` file for convenience (no Python required).
-- For Linux/macOS, use the provided launch scripts: `run_lister_z.sh`, `run_lister_z_gui.sh`, `Lister Z.command`, or `Lister Z GUI.command`.
-- See `README.md` for more details and advanced options.
+- For Linux, use the provided launch scripts: `run_lister_z.sh`, or `run_lister_z_gui.sh`.
+- For MacOS, use the provided launch scripts:  `Lister Z.command`, or `Lister Z GUI.command`.
+
+See `README.md` for more details.
 
 For support or more information, refer to the project README or contact the developer.
