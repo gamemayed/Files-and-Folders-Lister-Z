@@ -41,7 +41,6 @@ Save or copy the results as needed.
 
 **MacOS:**
 - Double-click `Lister Z.command`.
-  ```
 
 Follow the on-screen prompts or use command-line arguments to specify the folder and output options.
 
