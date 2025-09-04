@@ -44,15 +44,18 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
         for folder in folders:
             sub_files_map[folder] = get_all_sub_files(folder)
 
+    # Output
     output_file_path = os.path.join(directory, f"{output_filename_base}.{'docx' if mode.upper() == 'A' else ('json' if mode.upper() == 'C' else 'txt')}")
     if mode.upper() == "A":
         try:
             doc = Document()
             doc.add_heading(f"File List for {folder_name}", level=1)
+            # Folders
             if list_option in [1, 2]:
                 for folder in folders:
-                    write_folder_structure_docx(doc, folder)
-            if list_option in [1, 3]:
+                    write_folder_structure_docx(doc, folder, list_option=list_option)
+            # Files
+            if list_option == 1:
                 for file in files:
                     p = doc.add_paragraph()
                     p.add_run("• ")
@@ -74,8 +77,8 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
                 txt_file.write(f"File List for {folder_name}\n\n")
                 if list_option in [1, 2]:
                     for folder in folders:
-                        write_folder_structure_txt(txt_file, folder)
-                if list_option in [1, 3]:
+                        write_folder_structure_txt(txt_file, folder, list_option=list_option)
+                if list_option == 1:
                     for file in files:
                         base, ext = os.path.splitext(os.path.basename(file))
                         txt_file.write(f"• {base}{ext}\n")
@@ -93,30 +96,37 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
                 elif entry.is_dir():
                     d["subfolders"].append(folder_to_dict(entry.path))
             return d
-        db = {"root": folder_name, "files": [os.path.basename(f) for f in files], "folders": []}
+        db = {"root": folder_name, "files": [os.path.basename(f) for f in files] if list_option in [1, 3] else [], "folders": []}
         for folder in folders:
             db["folders"].append(folder_to_dict(folder))
         with open(output_file_path, "w", encoding="utf-8") as json_file:
             json.dump(db, json_file, indent=2)
-            # Add credits as a comment at the end (not valid JSON, but for user info)
-            json_file.write("\n/* Credits: User Lum-10 from GitHub and AI tools */\n")
+            json_file.write("\n/* Credits: user Lum-10 from GitHub and AI tools */\n")
         print(f"JSON database exported: {output_file_path}")
     else:
         with open(output_file_path, "w", encoding="utf-8") as txt_file:
             txt_file.write(f"File List for {folder_name}\n\n")
+            # Folders
             if list_option in [1, 2]:
                 for folder in folders:
-                    write_folder_structure_txt(txt_file, folder)
-            if list_option in [1, 3]:
-                for file in files:
-                    base, ext = os.path.splitext(os.path.basename(file))
-                    txt_file.write(f"• {base}{ext}\n")
+                    write_folder_structure_txt(txt_file, folder, list_option=list_option)
+            # Files
+            if list_option == 1 or list_option == 3:
+                if list_option == 1:
+                    for file in files:
+                        base, ext = os.path.splitext(os.path.basename(file))
+                        txt_file.write(f"• {base}{ext}\n")
+                elif list_option == 3:
+                    for file in files:
+                        base, ext = os.path.splitext(os.path.basename(file))
+                        txt_file.write(f"• {base}{ext}\n")
+            txt_file.write("\n\nCredits: user Lum-10 from GitHub and AI tools\n")
         print(f"List generated successfully: {output_file_path}")
         print("The List has been generated")
         with open(output_file_path, "a", encoding="utf-8") as txt_file:
             txt_file.write("\n\nCredits: User Lum-10 from GitHub and AI tools\n")
 
-def write_folder_structure_docx(doc, folder, indent=0):
+def write_folder_structure_docx(doc, folder, indent=0, list_option=1):
     p = doc.add_paragraph("    " * indent)
     p.add_run("• ")
     run = p.add_run(os.path.basename(folder))
@@ -130,8 +140,8 @@ def write_folder_structure_docx(doc, folder, indent=0):
         if entry.is_dir():
             if not specific_subfolders:
                 subfolder_count += 1
-                write_folder_structure_docx(doc, entry.path, indent + 1)
-        elif entry.is_file():
+                write_folder_structure_docx(doc, entry.path, indent + 1, list_option)
+        elif entry.is_file() and list_option == 1:
             subfile_count += 1
             sub_p = doc.add_paragraph("    " * (indent + 1) + f"{subfile_count}. ")
             base, ext = os.path.splitext(entry.name)
@@ -139,7 +149,7 @@ def write_folder_structure_docx(doc, folder, indent=0):
             sub_run.italic = True
             sub_p.add_run(ext)
 
-def write_folder_structure_txt(txt_file, folder, indent=0):
+def write_folder_structure_txt(txt_file, folder, indent=0, list_option=1):
     txt_file.write(f"{'    ' * indent}• {os.path.basename(folder)}\n")
     entries = sorted(os.scandir(folder), key=lambda e: (not e.is_dir(), e.name.lower()))
     subfolder_count = 0
@@ -150,8 +160,8 @@ def write_folder_structure_txt(txt_file, folder, indent=0):
         if entry.is_dir():
             if not specific_subfolders:
                 subfolder_count += 1
-                write_folder_structure_txt(txt_file, entry.path, indent + 1)
-        elif entry.is_file():
+                write_folder_structure_txt(txt_file, entry.path, indent + 1, list_option)
+        elif entry.is_file() and list_option == 1:
             subfile_count += 1
             base, ext = os.path.splitext(entry.name)
             txt_file.write(f"{'    ' * (indent + 1)}{subfile_count}. {base}{ext}\n")
