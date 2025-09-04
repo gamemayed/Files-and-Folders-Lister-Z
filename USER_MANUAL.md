@@ -30,9 +30,8 @@ Files and Folders Lister Z is a utility for listing the contents of directories 
 - Simple and intuitive interface.
 
 ## Notes
-- Requires Python to run the `.py` scripts.
-- For the GUI, use the `.exe` file for convenience (no Python required).
+- Requires Python to run the `lister_z.py` script.
+- For the GUI version, use the `lister_z_gui.exe` file for convenience (no Python required).
 - See `README.md` for more details and advanced options.
 
----
 For support or more information, refer to the project README or contact the developer.
