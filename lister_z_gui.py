@@ -161,6 +161,9 @@ def run_gui():
         directory = select_directory()
         if not directory:
             return
+        if not os.path.isdir(directory):
+            messagebox.showerror("Error", f"The directory '{directory}' does not exist.")
+            return
         mode = simpledialog.askstring("Mode", "Do you want to generate the output as DOCX (A), TXT (B), or JSON (C)?").strip().lower()
         if mode in ["a", "docx"]:
             mode = "A"
