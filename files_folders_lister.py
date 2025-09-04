@@ -2,7 +2,7 @@ import os
 import json
 from docx import Document
 
-def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, specific_subfolders=None):
+def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, specific_subfolders=None, ignore_hidden=False):
     folder_name = os.path.basename(os.path.normpath(directory))
     disk_letter = os.path.splitdrive(os.path.abspath(directory))[0].replace(":", "")
     output_filename_base = f"{folder_name} ({disk_letter})"
@@ -12,6 +12,8 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
     files = []
     import re
     for entry in os.scandir(directory):
+        if ignore_hidden and is_hidden_file(entry):
+            continue
         if entry.is_dir():
             if not specific_subfolders:
                 folders.append(entry.path)
@@ -154,9 +156,25 @@ def write_folder_structure_txt(txt_file, folder, indent=0):
             base, ext = os.path.splitext(entry.name)
             txt_file.write(f"{'    ' * (indent + 1)}{subfile_count}. {base}{ext}\n")
 
+def is_hidden_file(entry):
+    # Windows hidden files: starts with '.' or has hidden attribute, or common system files
+    hidden_names = {"desktop.ini", "thumbs.db", "._.ds_store", ".ds_store", ".gitignore", ".gitkeep"}
+    if entry.name.startswith('.') or entry.name.lower() in hidden_names:
+        return True
+    try:
+        import ctypes
+        attrs = ctypes.windll.kernel32.GetFileAttributesW(str(entry.path))
+        if attrs != -1 and attrs & 2:  # FILE_ATTRIBUTE_HIDDEN = 0x2
+            return True
+    except Exception:
+        pass
+    return False
+
 if __name__ == "__main__":
     directory_to_list = input("Enter the directory to list: ")
     recursive = True  # Always list sub-folders
+    ignore_hidden_input = input("Do you want to ignore hidden files such as desktop.ini, thumbs.db, ._.ds_store, .ds_store, .gitignore, .gitkeep? (yes/no): ").strip().lower()
+    ignore_hidden = ignore_hidden_input in ["yes", "y"]
     filter_input = input("Enter sub-folder names or keywords to filter (comma-separated, case-insensitive, substring match), or leave blank to include all: ").strip()
     if filter_input:
         specific_subfolders = [folder.strip() for folder in filter_input.split(",") if folder.strip()]
@@ -189,5 +207,4 @@ if __name__ == "__main__":
                 print("Invalid choice. Please enter 1, 2, or 3.")
         except ValueError:
             print("Invalid input. Please enter a number (1, 2, or 3).")
-    list_files_and_folders(directory_to_list, mode=mode, list_option=list_option, recursive=recursive, specific_subfolders=specific_subfolders)
-    
+    list_files_and_folders(directory_to_list, mode=mode, list_option=list_option, recursive=recursive, specific_subfolders=specific_subfolders, ignore_hidden=ignore_hidden)
