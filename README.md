@@ -12,7 +12,7 @@ Files & Folders Lister Z works on **Windows**, **MacOS**, and **Linux**.
 - **Command Line:** 
     - Use `run_lister_z.cmd` or run `python lister_z.py` in a terminal.
 
-### MacOS & Linux
+### Linux & MacOS
 - **GUI:**
 	- Run the shell script: `./run_lister_z_gui.sh`
 	- Or on MacOS, double-click `Lister Z GUI.command`
