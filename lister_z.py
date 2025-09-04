@@ -175,10 +175,12 @@ def is_hidden_file(entry):
     return False
 
 if __name__ == "__main__":
-    directory_to_list = input("Enter the directory to list: ")
-    if not os.path.isdir(directory_to_list):
-        print(f"Error: The directory '{directory_to_list}' does not exist.")
-        exit(1)
+    while True:
+        directory_to_list = input("Enter the directory to list: ")
+        if not os.path.isdir(directory_to_list):
+            print(f"Error: The directory '{directory_to_list}' does not exist. Please enter a valid folder.")
+        else:
+            break
     recursive = True  # Always list sub-folders
     hide_hidden_input = input("Do you want to hide hidden files such as desktop.ini? (y/yes/n/no): ").strip().lower()
     ignore_hidden = hide_hidden_input in ["yes", "y"]
