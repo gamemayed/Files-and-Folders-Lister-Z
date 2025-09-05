@@ -11,19 +11,19 @@ Both the command-line and GUI versions support English and Brazilian Portuguese.
 
 ### Windows
 - **GUI:** 
-    - Double-click `lister_z_gui.exe`. The GUI shows both language buttons and credits area as described above.
+    - Double-click `lister_z_gui.exe`. The GUI shows both language buttons as described above.
 - **Command Line:** 
     - Use `run_lister_z.cmd` or run `python lister_z.py` in a terminal. The program will prompt for language selection.
 
 ### Linux
 - **GUI:** 
-	- Run the shell script: `./run_lister_z_gui.sh`. The GUI features are identical to the Windows version, including both language buttons and credits area.
+	- Run the shell script: `./run_lister_z_gui.sh`. The GUI features are identical to the Windows version, including both language buttons.
 - **Command Line:** 
 	- Run the shell script: `./run_lister_z.sh` and follow the language prompt.
 
 ### MacOS
 - **GUI:**
-	- Double-click `Lister Z GUI.command`. The GUI features are identical to the Windows version, including both language buttons and credits area.
+	- Double-click `Lister Z GUI.command`. The GUI features are identical to the Windows version, including both language buttons.
 - **Command Line:**
 	- Double-click `Lister Z.command` and follow the language prompt.
 
@@ -42,7 +42,7 @@ Files & Folders Lister Z, ou simplesmente Lister Z, funciona em **Windows**, **L
 ## Como Executar
 
 ### Suporte a Múltiplos Idiomas
-Tanto a versão de linha de comando quanto a GUI suportam inglês e português brasileiro. Na GUI, há dois botões principais: "Executar Listador de Pastas e Arquivos Z" (português brasileiro, acima) e "Run Files & Folders Lister Z" (inglês, abaixo). A área de créditos na parte inferior sempre mostra "Créditos: Usuário Ium101 do GitHub e Ferramentas IA" e "Credits: User Ium101 from GitHub and AI tools" juntos.
+Tanto a versão de linha de comando quanto a GUI suportam inglês e português brasileiro. Na GUI, há dois botões principais: "Executar Listador de Pastas e Arquivos Z" (português brasileiro, acima) e "Run Files & Folders Lister Z" (inglês, abaixo).
 
 ### Windows
 - **GUI:** 
