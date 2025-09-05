@@ -20,9 +20,9 @@ Files & Folders Lister Z or just Lister Z works on **Windows**, **Linux**, and *
 
 ### MacOS
 - **GUI:**
-	- Double-click `Lister Z GUI.command`
+	- Double-click `lister z gui.command`
 - **Command Line:**
-	- Double-click `Lister Z.command`
+	- Double-click `lister z.command`
 
 Python 3 is required to run the `.py` scripts.
 
