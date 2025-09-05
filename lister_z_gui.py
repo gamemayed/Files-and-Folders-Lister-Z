@@ -71,7 +71,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=True, s
                     run.bold = True
                     p.add_run(ext)
             credits_p = doc.add_paragraph()
-            credits_run = credits_p.add_run("Credits: User Ium10 from GitHub and AI tools")
+            credits_run = credits_p.add_run("Credits: User Ium101 from GitHub and AI tools")
             credits_run.font.size = 127000
             doc.save(output_file_path)
             messagebox.showinfo("Success", f"List generated successfully: {output_file_path}")
@@ -91,7 +91,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=True, s
             db["folders"].append(folder_to_dict(folder))
         with open(output_file_path, "w", encoding="utf-8") as json_file:
             json.dump(db, json_file, indent=2)
-            json_file.write("\n/* Credits: User Ium10 from GitHub and AI tools */\n")
+            json_file.write("\n/* Credits: User Ium101 from GitHub and AI tools */\n")
         messagebox.showinfo("Success", f"JSON database exported: {output_file_path}")
     else:
         with open(output_file_path, "w", encoding="utf-8") as txt_file:
@@ -108,7 +108,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=True, s
                     for file in files:
                         base, ext = os.path.splitext(os.path.basename(file))
                         txt_file.write(f"• {base}{ext}\n")
-            txt_file.write("\n\nCredits: User Ium10 from GitHub and AI tools\n")
+            txt_file.write("\n\nCredits: User Ium101 from GitHub and AI tools\n")
         messagebox.showinfo("Success", f"List generated successfully: {output_file_path}")
 
 def write_folder_structure_docx(doc, folder, indent=0, list_option=1):
@@ -185,7 +185,7 @@ def run_gui():
         hide_hidden_input = messagebox.askyesno("Hide Hidden Files", "Do you want to hide hidden files such as desktop.ini?")
         list_files_and_folders(directory, mode=mode, list_option=list_option, recursive=True, specific_subfolders=specific_subfolders, ignore_hidden=hide_hidden_input)
     tk.Button(root, text="Run Files & Folders Lister", command=run_lister, height=2, width=30).pack(pady=40)
-    tk.Label(root, text="Credits: user Ium10 from GitHub and AI tools", font=("Arial", 8)).pack(side="bottom", pady=10)
+    tk.Label(root, text="Credits: user Ium101 from GitHub and AI tools", font=("Arial", 8)).pack(side="bottom", pady=10)
     root.mainloop()
 
 if __name__ == "__main__":
