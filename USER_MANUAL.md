@@ -6,7 +6,7 @@ Files and Folders Lister Z is a utility for listing the contents of directories 
 ## How to Use
 
 ### Multi-language Support
-Both the GUI and CLI versions support English and Brazilian Portuguese. In the GUI, there are two main buttons: "Executar Listador de Pastas e Arquivos Z" (Brazilian Portuguese, above) and "Run Files & Folders Lister Z" (English, below). The credits area at the bottom always shows both "Créditos: Usuário Ium101 do GitHub e Ferramentas IA" and "Credits: User Ium101 from GitHub and AI tools" close together.
+Both the GUI and CLI versions support English and Brazilian Portuguese. In the GUI, there are two main buttons: "Executar Listador de Pastas e Arquivos Z" (Brazilian Portuguese, above) and "Run Files & Folders Lister Z" (English, below).
 
 ### 1. Using the GUI
 **Windows:**
@@ -23,7 +23,6 @@ Both the GUI and CLI versions support English and Brazilian Portuguese. In the G
 Select the folder you want to list using the provided options.
 Choose your desired output format (DOCX, TXT, or JSON).
 Click either main button to generate the list in your preferred language.
-The credits area at the bottom will always show both Portuguese and English credits close together.
 
 ### 2. Using the Command Line
 **Windows:**
@@ -72,7 +71,7 @@ Files and Folders Lister Z é um utilitário para listar o conteúdo de diretór
 ## Como Usar
 
 ### Suporte a Múltiplos Idiomas
-Tanto a versão GUI quanto a CLI suportam inglês e português brasileiro. Na GUI, há dois botões principais: "Executar Listador de Pastas e Arquivos Z" (português brasileiro, acima) e "Run Files & Folders Lister Z" (inglês, abaixo). A área de créditos na parte inferior sempre mostra "Créditos: Usuário Ium101 do GitHub e Ferramentas IA" e "Credits: User Ium101 from GitHub and AI tools" juntos.
+Tanto a versão GUI quanto a CLI suportam inglês e português brasileiro. Na GUI, há dois botões principais: "Executar Listador de Pastas e Arquivos Z" (português brasileiro, acima) e "Run Files & Folders Lister Z" (inglês, abaixo).
 
 ### 1. Usando a GUI
 **Windows:**
