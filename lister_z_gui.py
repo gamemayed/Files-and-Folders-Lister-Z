@@ -151,22 +151,65 @@ def write_folder_structure_txt(txt_file, folder, indent=0, list_option=1):
             txt_file.write(f"{'    ' * (indent + 1)}{subfile_count}. {base}{ext}\n")
 
 def run_gui():
+    LANGUAGES = {
+        "en": {
+            "title": "Lister Z",
+            "run": "Run Files & Folders Lister Z",
+            "select_dir": "Select a folder to list.",
+            "error_dir": "The directory '{directory}' does not exist. Please select a valid folder.",
+            "mode": "Do you want to generate the output as DOCX (A), TXT (B), or JSON (C)?",
+            "invalid_mode": "Invalid input. Please enter DOCX/A or TXT/B, or JSON/C.",
+            "list_option": "Choose listing option:\n1. Both folders and files\n2. Only folders\n3. Only files",
+            "filter": "Enter sub-folder names or keywords to filter (comma-separated), or leave blank to include all:",
+            "hide_hidden": "Do you want to hide files such as desktop.ini?",
+            "success": "List generated successfully: {path}",
+            "json_success": "JSON database exported: {path}",
+            "docx_error": "DOCX generation failed: {err}",
+            "credits": "Credits: User Ium101 from GitHub and AI tools"
+        },
+        "pt": {
+            "title": "Lister Z",
+            "run": "Executar Listador de Pastas e Arquivos Z",
+            "select_dir": "Selecione uma pasta para listar.",
+            "error_dir": "O diretório '{directory}' não existe. Por favor, selecione uma pasta válida.",
+            "mode": "Deseja gerar a saída como DOCX (A), TXT (B) ou JSON (C)?",
+            "invalid_mode": "Entrada inválida. Por favor, insira DOCX/A, TXT/B ou JSON/C.",
+            "list_option": "Escolha a opção de listagem:\n1. Pastas e arquivos\n2. Apenas pastas\n3. Apenas arquivos",
+            "filter": "Digite nomes de subpastas ou palavras-chave para filtrar (separados por vírgula), ou deixe em branco para incluir todas:",
+            "hide_hidden": "Deseja ocultar arquivos como desktop.ini?",
+            "success": "Lista gerada com sucesso: {path}",
+            "json_success": "Banco de dados JSON exportado: {path}",
+            "docx_error": "Falha ao gerar DOCX: {err}",
+        "credits": "Créditos: Usuário Ium101 do GitHub e Ferramentas IA"
+        }
+    }
+    lang = ["en"]
+    def set_lang(l):
+        lang[0] = l
+        update_ui()
+    def update_ui():
+        L = LANGUAGES[lang[0]]
+        root.title(L["title"])
+        run_btn_en.config(text=LANGUAGES["en"]["run"])
+        run_btn_pt.config(text=LANGUAGES["pt"]["run"])
     root = tk.Tk()
-    root.title("Files & Folders Lister Z")
+    root.title(LANGUAGES[lang[0]]["title"])
     root.geometry("500x400")
     def select_directory():
-        return filedialog.askdirectory()
-    def run_lister():
+        return filedialog.askdirectory(title=LANGUAGES[lang[0]]["select_dir"])
+    def run_lister(lang_code):
+        lang[0] = lang_code
+        L = LANGUAGES[lang[0]]
         while True:
             directory = select_directory()
             if not directory:
                 return
             if not os.path.isdir(directory):
-                messagebox.showerror("Error", f"The directory '{directory}' does not exist. Please select a valid folder.")
+                messagebox.showerror(L["title"], L["error_dir"].format(directory=directory))
             else:
                 break
         while True:
-            mode = simpledialog.askstring("Mode", "Do you want to generate the output as DOCX (A), TXT (B), or JSON (C)?", parent=root)
+            mode = simpledialog.askstring(L["title"], L["mode"], parent=root)
             if mode is None:
                 root.destroy()
                 return
@@ -181,12 +224,12 @@ def run_gui():
                 mode = "C"
                 break
             else:
-                messagebox.showerror("Error", "Invalid input. Please enter DOCX/A or TXT/B, or JSON/C.")
-        list_option = simpledialog.askinteger("Listing Option", "Choose listing option:\n1. Both folders and files\n2. Only folders\n3. Only files", minvalue=1, maxvalue=3, parent=root)
+                messagebox.showerror(L["title"], L["invalid_mode"])
+        list_option = simpledialog.askinteger(L["title"], L["list_option"], minvalue=1, maxvalue=3, parent=root)
         if list_option is None:
             root.destroy()
             return
-        filter_input = simpledialog.askstring("Filter", "Enter sub-folder names or keywords to filter (comma-separated), or leave blank to include all:", parent=root)
+        filter_input = simpledialog.askstring(L["title"], L["filter"], parent=root)
         if filter_input is None:
             root.destroy()
             return
@@ -194,13 +237,45 @@ def run_gui():
             specific_subfolders = [folder.strip() for folder in filter_input.split(",") if folder.strip()]
         else:
             specific_subfolders = None
-        hide_hidden_input = messagebox.askyesno("Hide Files", "Do you want to hide files such as desktop.ini?", parent=root)
+        hide_hidden_input = messagebox.askyesno(L["title"], L["hide_hidden"], parent=root)
         if hide_hidden_input is None:
             root.destroy()
             return
-        list_files_and_folders(directory, mode=mode, list_option=list_option, recursive=True, specific_subfolders=specific_subfolders, ignore_hidden=hide_hidden_input)
-    tk.Button(root, text="Run Files & Folders Lister", command=run_lister, height=2, width=30).pack(pady=40)
-    tk.Label(root, text="Credits: User Ium101 from GitHub and AI tools", font=("Arial", 8)).pack(side="bottom", pady=10)
+        def patched_list_files_and_folders(*args, **kwargs):
+            import builtins
+            orig_showinfo = messagebox.showinfo
+            orig_showerror = messagebox.showerror
+            def lang_showinfo(title, msg, *a, **kw):
+                if "List generated successfully:" in msg:
+                    msg = L["success"].format(path=msg.split(": ",1)[-1])
+                elif "JSON database exported:" in msg:
+                    msg = L["json_success"].format(path=msg.split(": ",1)[-1])
+                elif "Credits: User Ium101 from GitHub and AI tools" in msg:
+                    msg = L["credits"]
+                orig_showinfo(title, msg, *a, **kw)
+            def lang_showerror(title, msg, *a, **kw):
+                if "DOCX generation failed:" in msg:
+                    msg = L["docx_error"].format(err=msg.split(": ",1)[-1])
+                orig_showerror(title, msg, *a, **kw)
+            messagebox.showinfo = lang_showinfo
+            messagebox.showerror = lang_showerror
+            try:
+                list_files_and_folders(*args, **kwargs)
+            finally:
+                messagebox.showinfo = orig_showinfo
+                messagebox.showerror = orig_showerror
+        patched_list_files_and_folders(directory, mode=mode, list_option=list_option, recursive=True, specific_subfolders=specific_subfolders, ignore_hidden=hide_hidden_input)
+    run_btn_pt = tk.Button(root, text=LANGUAGES["pt"]["run"], command=lambda: run_lister("pt"), height=2, width=30)
+    run_btn_pt.pack(pady=(30,10))
+    run_btn_en = tk.Button(root, text=LANGUAGES["en"]["run"], command=lambda: run_lister("en"), height=2, width=30)
+    run_btn_en.pack(pady=(0,10))
+    credits_frame = tk.Frame(root)
+    credits_frame.pack(side="bottom", pady=10)
+    credits_lbl_pt = tk.Label(credits_frame, text=LANGUAGES["pt"]["credits"], font=("Arial", 8))
+    credits_lbl_pt.pack()
+    credits_lbl_en = tk.Label(credits_frame, text=LANGUAGES["en"]["credits"], font=("Arial", 8))
+    credits_lbl_en.pack()
+    update_ui()
     root.mainloop()
 
 if __name__ == "__main__":
