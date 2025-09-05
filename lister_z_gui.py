@@ -68,7 +68,6 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=True, s
                     p.add_run("• ")
                     base, ext = os.path.splitext(os.path.basename(file))
                     run = p.add_run(base)
-                    run.bold = True
                     p.add_run(ext)
             credits_p = doc.add_paragraph()
             credits_run = credits_p.add_run("Credits: User Ium101 from GitHub and AI tools")
