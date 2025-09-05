@@ -2,7 +2,7 @@
 A Python tool to generate organized lists of files and folders in a directory, with options for DOCX or TXT or JSON output. Features include recursive listing, sorting, and customizable output formats.
 
 ## Compatibility
-Files & Folders Lister Z or just Lister Z works on **Windows**, **Linux**, and **MacOS**.
+Files & Folders Lister Z or simply Lister Z works on **Windows**, **Linux**, and **MacOS**.
 
 ## How to Run
 
