@@ -185,7 +185,7 @@ def run_gui():
         hide_hidden_input = messagebox.askyesno("Hide Hidden Files", "Do you want to hide hidden files such as desktop.ini?")
         list_files_and_folders(directory, mode=mode, list_option=list_option, recursive=True, specific_subfolders=specific_subfolders, ignore_hidden=hide_hidden_input)
     tk.Button(root, text="Run Files & Folders Lister", command=run_lister, height=2, width=30).pack(pady=40)
-    tk.Label(root, text="Credits: user Ium101 from GitHub and AI tools", font=("Arial", 8)).pack(side="bottom", pady=10)
+    tk.Label(root, text="Credits: User Ium101 from GitHub and AI tools", font=("Arial", 8)).pack(side="bottom", pady=10)
     root.mainloop()
 
 if __name__ == "__main__":
