@@ -27,3 +27,4 @@ Files & Folders Lister Z works on **Windows**, **MacOS**, and **Linux**.
 Python 3 is required to run the `.py` scripts.
 
 For more details and advanced options, see the `USER_MANUAL.md` file.
+For support or more information, contact Ium10.

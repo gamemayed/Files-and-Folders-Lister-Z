@@ -65,7 +65,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
                     p.add_run(ext)
             # Add credits to DOCX file (small text)
             credits_p = doc.add_paragraph()
-            credits_run = credits_p.add_run("Credits: User Lum-10 from GitHub and AI tools")
+            credits_run = credits_p.add_run("Credits: User Ium10 from GitHub and AI tools")
             credits_run.font.size = 127000  # 8pt in EMU units (1 pt = 12700 EMU)
             doc.save(output_file_path)
             print(f"List generated successfully: {output_file_path}")
@@ -84,7 +84,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
                     for file in files:
                         base, ext = os.path.splitext(os.path.basename(file))
                         txt_file.write(f"• {base}{ext}\n")
-                txt_file.write("\n\nCredits: User Lum-10 from GitHub and AI tools\n")
+                txt_file.write("\n\nCredits: User Ium10 from GitHub and AI tools\n")
             print(f"List generated successfully: {output_file_path}")
             print("The List has been generated")
     elif mode.upper() == "C":
@@ -102,7 +102,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
             db["folders"].append(folder_to_dict(folder))
         with open(output_file_path, "w", encoding="utf-8") as json_file:
             json.dump(db, json_file, indent=2)
-            json_file.write("\n/* Credits: User Lum-10 from GitHub and AI tools */\n")
+            json_file.write("\n/* Credits: User Ium10 from GitHub and AI tools */\n")
         print(f"JSON database exported: {output_file_path}")
     else:
         with open(output_file_path, "w", encoding="utf-8") as txt_file:
@@ -116,7 +116,7 @@ def list_files_and_folders(directory, mode="B", list_option=1, recursive=False, 
                 for file in files:
                     base, ext = os.path.splitext(os.path.basename(file))
                     txt_file.write(f"• {base}{ext}\n")
-            txt_file.write("\n\nCredits: User Lum-10 from GitHub and AI tools\n")
+            txt_file.write("\n\nCredits: User Ium10 from GitHub and AI tools\n")
         print(f"List generated successfully: {output_file_path}")
         print("The List has been generated")
 

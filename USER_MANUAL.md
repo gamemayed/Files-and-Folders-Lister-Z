@@ -56,5 +56,4 @@ Follow the on-screen prompts or use command-line arguments to specify the folder
 - For MacOS, use the provided launch scripts:  `Lister Z.command`, or `Lister Z GUI.command`.
 
 See `README.md` for more details.
-
-For support or more information, refer to the project README or contact the developer.
+For support or more information, refer to the project README or contact Ium10.
