@@ -37,7 +37,7 @@ For support or more information, contact Ium101.
 Um utilitário Python para gerar listas organizadas de arquivos e pastas em um diretório, com opções de saída em DOCX, TXT ou JSON. Recursos incluem listagem recursiva, ordenação e formatos de saída personalizáveis.
 
 ## Compatibilidade
-Files & Folders Lister Z, ou simplesmente Lister Z, funciona em **Windows**, **Linux** e **MacOS**.
+Listador de Arquivos e Pastas Z, ou simplesmente Listador Z, funciona em **Windows**, **Linux** e **MacOS**.
 
 ## Como Executar
 

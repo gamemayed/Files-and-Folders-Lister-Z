@@ -1,7 +1,7 @@
 # Files and Folders Lister Z - User Manual
 
 ## Overview
-Files and Folders Lister Z is a utility for listing the contents of directories on your computer. It provides both a command-line and a graphical user interface (GUI) for easy use.
+Files and Folders Lister Z or simply Lister Z is a utility for listing the contents of directories on your computer. It provides both a command-line and a graphical user interface (GUI) for easy use.
 
 ## How to Use
 
@@ -66,7 +66,7 @@ For support or more information, refer to the project README or contact Ium101.
 # Manual do Usuário - Files and Folders Lister Z
 
 ## Visão Geral
-Files and Folders Lister Z é um utilitário para listar o conteúdo de diretórios no seu computador. Ele oferece tanto uma interface de linha de comando quanto uma interface gráfica (GUI) para facilitar o uso.
+Listador de Pastas e Arquivos Z ou simplesmente Listador Z é um utilitário para listar o conteúdo de diretórios no seu computador. Ele oferece tanto uma interface de linha de comando quanto uma interface gráfica (GUI) para facilitar o uso.
 
 ## Como Usar
 
