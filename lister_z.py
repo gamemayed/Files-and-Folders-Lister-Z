@@ -182,7 +182,7 @@ if __name__ == "__main__":
         else:
             break
     recursive = True  # Always list sub-folders
-    hide_hidden_input = input("Do you want to hide hidden files such as desktop.ini? (y/yes/n/no): ").strip().lower()
+    hide_hidden_input = input("Do you want to hide files such as desktop.ini? (y/yes/n/no): ").strip().lower()
     ignore_hidden = hide_hidden_input in ["yes", "y"]
     filter_input = input("Enter sub-folder names or keywords to filter (comma-separated, case-insensitive, substring match), or leave blank to include all: ").strip()
     if filter_input:

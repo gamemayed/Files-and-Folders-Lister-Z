@@ -166,23 +166,39 @@ def run_gui():
                 messagebox.showerror("Error", f"The directory '{directory}' does not exist. Please select a valid folder.")
             else:
                 break
-        mode = simpledialog.askstring("Mode", "Do you want to generate the output as DOCX (A), TXT (B), or JSON (C)?").strip().lower()
-        if mode in ["a", "docx"]:
-            mode = "A"
-        elif mode in ["b", "txt"]:
-            mode = "B"
-        elif mode in ["c", "json"]:
-            mode = "C"
-        else:
-            messagebox.showerror("Error", "Invalid input. Please enter DOCX/A or TXT/B, or JSON/C.")
+        while True:
+            mode = simpledialog.askstring("Mode", "Do you want to generate the output as DOCX (A), TXT (B), or JSON (C)?", parent=root)
+            if mode is None:
+                root.destroy()
+                return
+            mode = mode.strip().lower()
+            if mode in ["a", "docx"]:
+                mode = "A"
+                break
+            elif mode in ["b", "txt"]:
+                mode = "B"
+                break
+            elif mode in ["c", "json"]:
+                mode = "C"
+                break
+            else:
+                messagebox.showerror("Error", "Invalid input. Please enter DOCX/A or TXT/B, or JSON/C.")
+        list_option = simpledialog.askinteger("Listing Option", "Choose listing option:\n1. Both folders and files\n2. Only folders\n3. Only files", minvalue=1, maxvalue=3, parent=root)
+        if list_option is None:
+            root.destroy()
             return
-        list_option = simpledialog.askinteger("Listing Option", "Choose listing option:\n1. Both folders and files\n2. Only folders\n3. Only files", minvalue=1, maxvalue=3)
-        filter_input = simpledialog.askstring("Filter", "Enter sub-folder names or keywords to filter (comma-separated), or leave blank to include all:")
+        filter_input = simpledialog.askstring("Filter", "Enter sub-folder names or keywords to filter (comma-separated), or leave blank to include all:", parent=root)
+        if filter_input is None:
+            root.destroy()
+            return
         if filter_input:
             specific_subfolders = [folder.strip() for folder in filter_input.split(",") if folder.strip()]
         else:
             specific_subfolders = None
-        hide_hidden_input = messagebox.askyesno("Hide Hidden Files", "Do you want to hide hidden files such as desktop.ini?")
+        hide_hidden_input = messagebox.askyesno("Hide Files", "Do you want to hide files such as desktop.ini?", parent=root)
+        if hide_hidden_input is None:
+            root.destroy()
+            return
         list_files_and_folders(directory, mode=mode, list_option=list_option, recursive=True, specific_subfolders=specific_subfolders, ignore_hidden=hide_hidden_input)
     tk.Button(root, text="Run Files & Folders Lister", command=run_lister, height=2, width=30).pack(pady=40)
     tk.Label(root, text="Credits: User Ium101 from GitHub and AI tools", font=("Arial", 8)).pack(side="bottom", pady=10)
