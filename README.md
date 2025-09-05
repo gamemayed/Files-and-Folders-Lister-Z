@@ -7,7 +7,7 @@ Files & Folders Lister Z or just Lister Z works on **Windows**, **Linux**, and *
 ## How to Run
 
 ### Multi-language Support
-Both the command-line and GUI versions support English and Brazilian Portuguese. In the GUI, there are two main buttons: "Executar Listador de Pastas e Arquivos Z" (Brazilian Portuguese, above) and "Run Files & Folders Lister Z" (English, below). The credits area at the bottom always shows both "Créditos: Usuário Ium101 do GitHub e Ferramentas IA" and "Credits: User Ium101 from GitHub and AI tools" close together.
+Both the command-line and GUI versions support English and Brazilian Portuguese. In the GUI, there are two main buttons: "Executar Listador de Pastas e Arquivos Z" (Brazilian Portuguese, above) and "Run Files & Folders Lister Z" (English, below).
 
 ### Windows
 - **GUI:** 
