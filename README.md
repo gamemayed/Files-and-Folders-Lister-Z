@@ -33,7 +33,7 @@ For more details and advanced options, see the `USER_MANUAL.md` file.
 For support or more information, contact Ium101.
 
 
-# Listador de Pastas e Arquivos Z (Português)
+# Listador de Pastas e Arquivos Z
 Um utilitário Python para gerar listas organizadas de arquivos e pastas em um diretório, com opções de saída em DOCX, TXT ou JSON. Recursos incluem listagem recursiva, ordenação e formatos de saída personalizáveis.
 
 ## Compatibilidade
